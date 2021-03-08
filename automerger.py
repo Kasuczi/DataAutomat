@@ -19,7 +19,7 @@ class DataMerge:
         the automerger which transforms the data and put in right places
         :param user: user_id
         :param password: inputed_password
-        :return: connectionUNO
+        :return: connection
         """
         conns = pd.read_csv("PATH.csv", index_col="nazwa")
         conns = conns.loc["DATABASE"]
