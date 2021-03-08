@@ -22,7 +22,7 @@ class DataMerge:
         :return: connectionUNO
         """
         conns = pd.read_csv("PATH.csv", index_col="nazwa")
-        conns = conns.loc["HDD_PROD_UI"]
+        conns = conns.loc["DATABASE"]
         dsn_tnsDMKK = cx_Oracle.makedsn(conns["host"], conns["port"],
                                         service_name=conns["service_name"])  # service_name=
         connectionUNO = cx_Oracle.connect(user, password, dsn_tnsDMKK)
