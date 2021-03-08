@@ -42,13 +42,11 @@ class DataMerge:
         left = data_uf
         right = pd.read_csv(address2, delimiter='|')
 
-        data_uf_zew = left[['DATA_ZLOZENIA', 'UUID_GOOGLE', 'KAMPANIA',
-                            'SPRZEDAWCA', 'TYP_KOMUNIKACJI', 'WYSOKOSC_OPLATY',
-                            'WITRYNA'
+        data_uf_zew = left[['COL1', 'COL2', 'COL3',
+                            
                             ]]
         data_ex_zew = right[[
-            'DATA_WEJSCIA', 'param_option', 'sprzedawca', 'flaga_skad_wniosek',
-            'strona', 'uuid',
+           'COL1', 'COL2', 'COL4',
         ]]
 
         data_uf_zew.to_csv("PATH.csv")
@@ -62,7 +60,7 @@ class DataMerge:
         the_templatek = Template(pathk)
         outputk = the_templatek.substitute(data=now)
 
-        merged_left = pd.merge(left, right, how='outer', on=['KEYE', 'DATA_WEJSCIA'])
+        merged_left = pd.merge(left, right, how='outer', on=['COL1', 'COL2'])
         # podsumowanie na dysk M
         merged_left.to_csv(pathm, sep='|')
         # podsumowanie na dysk K
